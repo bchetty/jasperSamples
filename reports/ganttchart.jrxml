@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="ganttchart" pageWidth="842" pageHeight="595" 
+              orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="series" class="java.lang.String">
+		<fieldDescription><![CDATA[series]]></fieldDescription>
+	</field>
+	<field name="task" class="java.lang.String">
+		<fieldDescription><![CDATA[task]]></fieldDescription>
+	</field>
+	<field name="startDate" class="java.util.Date">
+		<fieldDescription><![CDATA[startDate]]></fieldDescription>
+	</field>
+	<field name="endDate" class="java.util.Date">
+		<fieldDescription><![CDATA[endDate]]></fieldDescription>
+	</field>
+	<group name="dummy">
+		<groupExpression><![CDATA["dummy"]]></groupExpression>
+		<groupFooter>
+			<band height="500">
+				<ganttChart>
+					<chart evaluationTime="Group" evaluationGroup="dummy" theme="aegean">
+						<reportElement x="0" y="0" width="802" height="500"/>
+						<chartTitle>
+							<titleExpression><![CDATA["Meeting Schedule"]]></titleExpression>
+						</chartTitle>
+						<chartSubtitle/>
+						<chartLegend/>
+					</chart>
+					<ganttDataset>
+						<dataset resetType="Group" resetGroup="dummy"/>
+						<ganttSeries>
+							<seriesExpression><![CDATA[$F{series}]]></seriesExpression>
+							<taskExpression><![CDATA[$F{task}]]></taskExpression>
+							<subtaskExpression><![CDATA[$F{task}]]></subtaskExpression>
+							<startDateExpression><![CDATA[$F{startDate}]]></startDateExpression>
+							<endDateExpression><![CDATA[$F{endDate}]]></endDateExpression>
+						</ganttSeries>
+					</ganttDataset>
+					<barPlot>
+						<plot orientation="Horizontal"/>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+						<categoryAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</categoryAxisFormat>
+						<valueAxisFormat>
+							<axisFormat>
+								<labelFont/>
+								<tickLabelFont/>
+							</axisFormat>
+						</valueAxisFormat>
+					</barPlot>
+				</ganttChart>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="thermochart" pageWidth="842" pageHeight="595" orientation="Landscape" 
+              columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty">
+
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="rangeMin" class="java.lang.Double">
+		<fieldDescription><![CDATA[rangeMin]]></fieldDescription>
+	</field>
+	<field name="thirdSubRangeMax" class="java.lang.Double">
+		<fieldDescription><![CDATA[thirdSubRangeMax]]></fieldDescription>
+	</field>
+	<field name="firstSubRangeMax" class="java.lang.Double">
+		<fieldDescription><![CDATA[firstSubRangeMax]]></fieldDescription>
+	</field>
+	<field name="secondSubRangeMin" class="java.lang.Double">
+		<fieldDescription><![CDATA[secondSubRangeMin]]></fieldDescription>
+	</field>
+	<field name="rangeMax" class="java.lang.Double">
+		<fieldDescription><![CDATA[rangeMax]]></fieldDescription>
+	</field>
+	<field name="firstSubRangeMin" class="java.lang.Double">
+		<fieldDescription><![CDATA[firstSubRangeMin]]></fieldDescription>
+	</field>
+	<field name="secondSubRangeMax" class="java.lang.Double">
+		<fieldDescription><![CDATA[secondSubRangeMax]]></fieldDescription>
+	</field>
+	<field name="value" class="java.lang.Double">
+		<fieldDescription><![CDATA[value]]></fieldDescription>
+	</field>
+	<field name="thirdSubRangeMin" class="java.lang.Double">
+		<fieldDescription><![CDATA[thirdSubRangeMin]]></fieldDescription>
+	</field>
+	<field name="title" class="java.lang.String">
+		<fieldDescription><![CDATA[title]]></fieldDescription>
+	</field>
+	<group name="dummy">
+		<groupExpression><![CDATA["dummy"]]></groupExpression>
+		<groupFooter>
+			<band height="500">
+				<thermometerChart>
+					<chart evaluationTime="Group" evaluationGroup="dummy" theme="default">
+						<reportElement mode="Transparent" x="0" y="0" width="802" height="500"/>
+						<chartTitle position="Top">
+							<titleExpression><![CDATA[$F{title}]]></titleExpression>
+						</chartTitle>
+						<chartSubtitle>
+							<font isBold="true"/>
+							<subtitleExpression><![CDATA[$F{title}]]></subtitleExpression>
+						</chartSubtitle>
+						<chartLegend position="Top"/>
+					</chart>
+					<valueDataset>
+						<dataset resetType="Group" resetGroup="dummy"/>
+						<valueExpression><![CDATA[$F{value}]]></valueExpression>
+					</valueDataset>
+					<thermometerPlot mercuryColor="#00FF00">
+						<plot>
+							<seriesColor seriesOrder="0" color="#90E748"/>
+							<seriesColor seriesOrder="1" color="#DC388C"/>
+							<seriesColor seriesOrder="2" color="#358444"/>
+							<seriesColor seriesOrder="3" color="#35DCA1"/>
+							<seriesColor seriesOrder="4" color="#70681E"/>
+							<seriesColor seriesOrder="5" color="#D268BB"/>
+							<seriesColor seriesOrder="6" color="#B665D4"/>
+							<seriesColor seriesOrder="7" color="#E53CFA"/>
+						</plot>
+						<valueDisplay color="#000000"/>
+						<dataRange>
+							<lowExpression><![CDATA[$F{rangeMin}]]></lowExpression>
+							<highExpression><![CDATA[$F{rangeMax}]]></highExpression>
+						</dataRange>
+						<lowRange>
+							<dataRange>
+								<lowExpression><![CDATA[$F{firstSubRangeMin}]]></lowExpression>
+								<highExpression><![CDATA[$F{firstSubRangeMax}]]></highExpression>
+							</dataRange>
+						</lowRange>
+						<mediumRange>
+							<dataRange>
+								<lowExpression><![CDATA[$F{secondSubRangeMin}]]></lowExpression>
+								<highExpression><![CDATA[$F{secondSubRangeMax}]]></highExpression>
+							</dataRange>
+						</mediumRange>
+						<highRange>
+							<dataRange>
+								<lowExpression><![CDATA[$F{thirdSubRangeMin}]]></lowExpression>
+								<highExpression><![CDATA[$F{thirdSubRangeMax}]]></highExpression>
+							</dataRange>
+						</highRange>
+					</thermometerPlot>
+				</thermometerChart>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
