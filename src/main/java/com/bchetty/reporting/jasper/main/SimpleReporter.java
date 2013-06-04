@@ -1,5 +1,7 @@
 package com.bchetty.reporting.jasper.main;
 
+import com.bchetty.reporting.jasper.business.SimpleBeanMaker;
+import com.bchetty.reporting.jasper.data.SimpleBean;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -29,9 +31,9 @@ public class SimpleReporter {
     public static void main(String[] args) throws Exception {
         InputStream inputStream = new FileInputStream("reports/simple.jrxml");
 
-        ArrayList dataBeanList = new ArrayList();
-
-        JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(dataBeanList);
+        SimpleBeanMaker simpleBeanMaker = new SimpleBeanMaker();
+        ArrayList<SimpleBean> simpleBeanList = simpleBeanMaker.getDataBeanList();
+        JRBeanCollectionDataSource beanColDataSource = new JRBeanCollectionDataSource(simpleBeanList);
 
         Map parameters = new HashMap();
 
